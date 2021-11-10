@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyApplication78/app/src/main/res/drawable/buttonbackground.xml" value="0.1921875" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyApplication78/app/src/main/res/drawable/colddesign.xml" value="0.16822916666666668" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyApplication78/app/src/main/res/drawable/dessertdesgin.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyApplication78/app/src/main/res/drawable/mealdesign.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyApplication78/app/src/main/res/drawable/ricedesign.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyApplication78/app/src/main/res/drawable/shadow.xml" value="0.21041666666666667" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyApplication78/app/src/main/res/drawable/shape.xml" value="0.21041666666666667" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyApplication78/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyApplication78/app/src/main/res/layout/activity_main2.xml" value="0.17604166666666668" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyApplication78/app/src/main/res/layout/activity_meal.xml" value="0.264" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyApplication78/app/src/main/res/layout/activity_second.xml" value="0.2" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyApplication78/app/src/main/res/layout/activity_soup.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyApplication78/app/src/main/res/layout/activity_spicy.xml" value="0.176" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyApplication78/app/src/main/res/layout/activity_temp.xml" value="0.176" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
