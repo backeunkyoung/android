@@ -29,6 +29,10 @@ class SoupActivity : AppCompatActivity() {
             val intent = Intent(this, TempActivity::class.java)
             startActivity(intent) }
 
+        nextBtn.setOnClickListener{
+            val intent = Intent(this, MenuList::class.java)
+            startActivity(intent)
+        }
 
     }
 

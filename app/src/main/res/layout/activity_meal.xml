@@ -141,11 +141,11 @@
             android:id="@+id/nextBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:background="#59FFCC3A"
             android:fontFamily="@font/notosanskrblack"
             android:text="다음"
-            android:textSize="20sp"
-            android:layout_alignParentBottom="true"/>
+            android:textSize="20sp" />
 
 
 

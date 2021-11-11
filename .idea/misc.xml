@@ -3,6 +3,27 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/USER/android222/android/app/src/main/res/drawable/breaddesign.xml" value="0.18425925925925926" />
+        <entry key="..\:/Users/USER/android222/android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.18425925925925926" />
+        <entry key="..\:/Users/USER/android222/android/app/src/main/res/drawable/noodledesign.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/USER/android222/android/app/src/main/res/drawable/notspicydesign.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/USER/android222/android/app/src/main/res/drawable/ricedesign.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/USER/android222/android/app/src/main/res/drawable/selector.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/USER/android222/android/app/src/main/res/drawable/shadow.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/USER/android222/android/app/src/main/res/drawable/shape.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/USER/android222/android/app/src/main/res/layout/activity_main.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/USER/android222/android/app/src/main/res/layout/activity_main2.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/USER/android222/android/app/src/main/res/layout/activity_meal.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/USER/android222/android/app/src/main/res/layout/activity_second.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/USER/android222/android/app/src/main/res/layout/activity_soup.xml" value="0.2" />
+        <entry key="..\:/Users/USER/android222/android/app/src/main/res/layout/activity_spicy.xml" value="0.1" />
+        <entry key="..\:/Users/USER/android222/android/app/src/main/res/layout/fragment_first.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/USER/android222/android/app/src/main/res/layout/fragment_second.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/USER/android222/android/app/src/main/res/layout/menu_info.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/USER/android222/android/app/src/main/res/layout/menu_info2.xml" value="0.2" />
+        <entry key="..\:/Users/USER/android222/android/app/src/main/res/layout/menu_info3.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/USER/android222/android/app/src/main/res/layout/menu_info4.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/USER/android222/android/app/src/main/res/layout/menu_list.xml" value="0.264" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MyApplication78/app/src/main/res/drawable/buttonbackground.xml" value="0.1921875" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MyApplication78/app/src/main/res/drawable/colddesign.xml" value="0.16822916666666668" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MyApplication78/app/src/main/res/drawable/dessertdesgin.xml" value="0.26979166666666665" />

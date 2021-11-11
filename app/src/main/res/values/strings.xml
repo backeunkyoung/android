@@ -9,4 +9,11 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="info">메뉴를 클릭할 시 메뉴 상세정보가 나옵니다.</string>
+    <string name="shop">현재 위치에서 가장 가까운 음식점</string>
+    <string name="menu">매운탕</string>
+    <string name="spicy_tang">매운탕은 한국 요리로서 생선을 고추장, 고춧가루, 그리고 여러가지 채소와 함께 끓여낸 음식이다. 맵고 자극적인 맛이 특징이며, 주재료인 생선은 민물고기와 바닷고기 모두 사용된다. 생선을 적당한 크기로 토막내어 미나리, 쑥갓, 양파, 무, 고추, 마늘, 호박, 두부 등과 함께 끓인다. 매운탕의 간은 고춧가루, 마늘, 간장, 고추장 등으로 맞춘다.</string>
+    <string name="kimchi_stew">김치찌개에는 배추김치와 채소, 두부, 육류, 어패류 등이 들어가는데, 보통 육류와 해산물은 동시에 들어가지 않는다. 육류는 주로 돼지고기를 넣고, 쇠고기는 쉽게 질겨서 일반적으론 잘 사용하지 않는다. 해산물은 주로 참치를 넣으며, 간혹 꽁치를 쓰기도 한다. 김치찌개를 끓이다가 고춧가루를 첨가하면 맛과 색감이 좋아진다고 한다.</string>
+    <string name="chicken_foot">닭발은 닭의 발목 아래에 해당하는 부위로 뼈가 얇은 연골의 형태이기 때문에 쉽게 씹히고, 껍질은 콜라겐과 같은 결합조직 단백질이 붙어있어 쫀득쫀득한 식감이 난다. 닭발은 양념에 재워 갖은 채소와 함께 볶아 먹는 경우가 많으며, 매콤하고 자극적인 맛에 술안주로 자주 곁들여진다.</string>
+    <string name="Dak_bokkeum_tang">닭을 먹기 좋게 도막 내어 냄비에 넣고, 매운 양념장과 고루 버무려 바특하게 끓여 낸 닭고기 요리이다.  닭볶음탕이라고 하면 일반적으로는 닭고기와 감자를 주재료로 해서, 고추장과 고춧가루 등을 다른 양념과 섞어 얼큰한 맛이 나도록 바특하게 끓여 낸 요리를 일컫는다.</string>
 </resources>

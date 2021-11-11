@@ -19,6 +19,21 @@
             android:name=".SpicyActivity"
             android:exported="false" />
         <activity
+            android:name=".MenuList"
+            android:exported="false"/>
+        <activity
+            android:name=".MenuInfo"
+            android:exported="false"/>
+        <activity
+            android:name=".MenuInfo2"
+            android:exported="false"/>
+        <activity
+            android:name=".MenuInfo3"
+            android:exported="false"/>
+        <activity
+            android:name=".MenuInfo4"
+            android:exported="false"/>
+        <activity
             android:name=".MealActivity"
             android:exported="false" />
         <activity
