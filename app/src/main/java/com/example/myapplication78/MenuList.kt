@@ -23,6 +23,14 @@ class MenuList: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.menu_list)
 
+        var inIntent = intent
+        var mainChked = inIntent.getStringExtra("mainBtn")
+        var mealChked = inIntent.getStringExtra("mealBtn")
+        var spicyChked = inIntent.getStringExtra("spicyBtn")
+        var soupChked = inIntent.getStringExtra("soupBtn")
+        var juiceChked = inIntent.getStringExtra("juiceBtn")
+        var nojuiceChked = inIntent.getStringExtra("nojuiceBtn")
+
         title = "메추리"
         returnBtn = findViewById<Button>(R.id.returnbtn)
 
@@ -31,8 +39,32 @@ class MenuList: AppCompatActivity() {
         Btn3 = findViewById(R.id.btn3)
         Btn4 = findViewById(R.id.btn4)
         returnBtn.setOnClickListener {
-            val intent = Intent(this, SoupActivity::class.java)
-            startActivity(intent) }
+
+
+            if(mealChked.isNullOrEmpty()){
+
+                if(juiceChked.isNullOrEmpty()){
+                    val intent = Intent(this, NoJuiceActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
+                    finish()
+                }
+                else if(nojuiceChked.isNullOrEmpty()){
+                    val intent = Intent(this, JuiceActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
+                    finish()
+                }
+
+            }
+
+            else {
+                val intent = Intent(this, SoupActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+                finish()
+            }
+        }
 
         Btn1.setOnClickListener{
             val intent = Intent(this, MenuInfo::class.java)
