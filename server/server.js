@@ -12,24 +12,26 @@ app.listen(port, () => {  // server check massage
     console.log(`express is running on ${port}`);
 });
 
-// meal?spicy=not&temp=hot
-app.get('/meal', (req, res) => {   // meal Table load
-    // var query = bodyparser(req);
-    // query["spicy"]
-    // query['temp']
+app.post('/meal', (req, res) => {   // meal Table load
+    console.log("req : \n" + JSON.stringify(req.body))
+    var params = req.body;
+    var type = params.type;
+    var spicy = params.spicy;
+    var soup = params.soup;
 
-    for (output in req) {
-        console.log("req : " + JSON.stringify(output));
-    }
-
-    var query = "SELECT * FROM food_add_db.meal;"
+    var query = " SELECT * FROM food_add_db.meal\n" + 
+                " WHERE food_add_db.meal.type = '" + type + "'" + "\n" + 
+                " AND food_add_db.meal.spicy = '" + spicy + "'" + "\n" + 
+                " AND food_add_db.meal.soup = '" + soup + "'" + "\n" + 
+                " ORDER BY RAND() LIMIT 4;"
 
     db.query(query, (err, data) => {
         if (!err) {
-            res.send({'foodname' : "음식 이름"})
-            // res.send({'products' : data});
-            console.log("meal success");
-            // console.log(data)
+            res.send({'products' : data});
+
+            for (var i = 0; i < 4; i++) {
+                console.log(data[i].food_name);
+            }
         }
         else {
             res.send(err);
@@ -38,14 +40,22 @@ app.get('/meal', (req, res) => {   // meal Table load
     })
 });
 
-app.get('/dessertDrink', (req, res) => {   // dessertDrink Table load
-    var query = "SELECT * FROM food_add_db.dessert_drink;"
+app.post('/dessertDrink', (req, res) => {   // dessert_drink Table load
+    console.log("req : \n" + JSON.stringify(req.body))
+    var params = req.body;
+    var is_caffeine = params.is_caffeine;
+
+    var query = " SELECT * FROM food_add_db.dessert_drink\n" + 
+                " WHERE food_add_db.dessert_drink.is_caffeine = '" + is_caffeine + "'" + "\n" + 
+                " ORDER BY RAND() LIMIT 4;"
 
     db.query(query, (err, data) => {
         if (!err) {
             res.send({'products' : data});
-            console.log("drink success");
-            // console.log(data)
+
+            for (var i = 0; i < 4; i++) {
+                console.log(data[i].food_name);
+            }
         }
         else {
             res.send(err);
@@ -54,14 +64,22 @@ app.get('/dessertDrink', (req, res) => {   // dessertDrink Table load
     })
 });
 
-app.get('/dessertFood', (req, res) => {   // dessertFood Table load
-    var query = "SELECT * FROM food_add_db.dessert_food;"
+app.post('/dessertFood', (req, res) => {   // dessertFood Table load
+    console.log("req : \n" + JSON.stringify(req.body))
+    var params = req.body;
+    var type = params.type;
+
+    var query = " SELECT * FROM food_add_db.dessert_food\n" + 
+                " WHERE food_add_db.dessert_food.type = '" + type + "'" + "\n" + 
+                " ORDER BY RAND() LIMIT 4;"
 
     db.query(query, (err, data) => {
         if (!err) {
             res.send({'products' : data});
-            console.log("food success");
-            // console.log(data)
+
+            for (var i = 0; i < 4; i++) {
+                console.log(data[i].food_name);
+            }
         }
         else {
             res.send(err);
