@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.RadioButton
 import android.widget.RadioGroup
+import android.widget.Toast
 
 class NoJuiceActivity : AppCompatActivity() {
 
@@ -29,28 +30,31 @@ class NoJuiceActivity : AppCompatActivity() {
 
         var inIntent = intent
         var mainChked = inIntent.getStringExtra("mainBtn")
-        var dessertChked = inIntent.getStringExtra("dessert")
+        var dessertChked = inIntent.getStringExtra("dessertBtn")
+
 
         returnBtn.setOnClickListener {
-            val intent = Intent(this, DessertActivity::class.java)
-            startActivity(intent) }
+         /*   val intent = Intent(this, DessertActivity::class.java)
+            startActivity(intent) */
+            super.onBackPressed()
+        }
 
         nextBtn.setOnClickListener{
             val intent = Intent(this, MenuList::class.java)
             when(rdoGrp.checkedRadioButtonId){
                 R.id.bakeryBtn -> {
                     intent.putExtra("mainBtn", mainChked)
-                    intent.putExtra("mainBtn", dessertChked)
+                    intent.putExtra("dessertBtn", dessertChked)
                     intent.putExtra("nojuiceBtn", "BREAD")
                 }
                 R.id.iceBtn -> {
                     intent.putExtra("mainBtn", mainChked)
-                    intent.putExtra("mainBtn", dessertChked)
+                    intent.putExtra("dessertBtn", dessertChked)
                     intent.putExtra("nojuiceBtn", "FROZEN")
                 }
                 R.id.fruitsBtn -> {
                     intent.putExtra("mainBtn", mainChked)
-                    intent.putExtra("mainBtn", dessertChked)
+                    intent.putExtra("dessertBtn", dessertChked)
                     intent.putExtra("nojuiceBtn", "FRUIT")
                 }
             }

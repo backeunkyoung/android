@@ -28,23 +28,25 @@ class JuiceActivity : AppCompatActivity() {
 
         var inIntent = intent
         var mainChked = inIntent.getStringExtra("mainBtn")
-        var dessertChked = inIntent.getStringExtra("dessert")
+        var dessertChked = inIntent.getStringExtra("dessertBtn")
 
         returnBtn.setOnClickListener {
-            val intent = Intent(this, DessertActivity::class.java)
-            startActivity(intent) }
+            /*val intent = Intent(this, DessertActivity::class.java)
+            startActivity(intent)*/
+            super.onBackPressed()
+        }
 
         nextBtn.setOnClickListener{
             val intent = Intent(this, MenuList::class.java)
             when(rdoGrp.checkedRadioButtonId){
                 R.id.caffBtn -> {
                     intent.putExtra("mainBtn", mainChked)
-                    intent.putExtra("mainBtn", dessertChked)
+                    intent.putExtra("dessertBtn", dessertChked)
                     intent.putExtra("juiceBtn", "TRUE")
                 }
                 R.id.decaffBtn -> {
                     intent.putExtra("mainBtn", mainChked)
-                    intent.putExtra("mainBtn", dessertChked)
+                    intent.putExtra("dessertBtn", dessertChked)
                     intent.putExtra("juiceBtn", "FALSE")
                 }
             }

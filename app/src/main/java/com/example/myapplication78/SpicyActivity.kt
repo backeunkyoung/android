@@ -39,10 +39,12 @@ class SpicyActivity : AppCompatActivity() {
         }
 
         returnBtn.setOnClickListener {
-            val intent = Intent(this, MealActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(intent)
-            finish()
+          //  val intent = Intent(this, MealActivity::class.java)
+          //  intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+          //  startActivity(intent)
+          //  finish()
+        super.onBackPressed()
+
         }
 
         nextBtn.setOnClickListener{

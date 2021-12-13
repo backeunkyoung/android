@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.RadioButton
 import android.widget.RadioGroup
+import android.widget.Toast
 
 class MealActivity : AppCompatActivity() {
 
@@ -17,6 +18,7 @@ class MealActivity : AppCompatActivity() {
     lateinit var rdoGrp : RadioGroup
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_meal)
 
@@ -34,10 +36,12 @@ class MealActivity : AppCompatActivity() {
         }
 
         returnBtn.setOnClickListener {
-            val intent = Intent(this, SecondActivity::class.java)
+        /*    val intent = Intent(this, SecondActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
-            finish()
+            finish()*/
+
+            super.onBackPressed()
         }
 
         nextBtn.setOnClickListener{
@@ -70,5 +74,7 @@ class MealActivity : AppCompatActivity() {
 
         }
     }
+
+
 
     }

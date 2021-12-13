@@ -29,8 +29,12 @@ class DessertActivity : AppCompatActivity() {
         var mainChked = inIntent.getStringExtra("mainBtn")
 
         returnBtn.setOnClickListener {
-            val intent = Intent(this, SecondActivity::class.java)
-            startActivity(intent) }
+          /*  val intent = Intent(this, SecondActivity::class.java)
+            startActivity(intent)*/
+
+            super.onBackPressed()
+
+        }
 
         nextBtn.setOnClickListener{
 

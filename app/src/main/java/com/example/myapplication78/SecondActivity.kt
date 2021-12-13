@@ -29,10 +29,12 @@ class SecondActivity : AppCompatActivity() {
 
 
         returnBtn.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+        /*    val intent = Intent(this, MainActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
-            finish()
+            finish()*/
+
+            super.onBackPressed()
         }
 
         nextBtn.setOnClickListener{
@@ -41,13 +43,11 @@ class SecondActivity : AppCompatActivity() {
                 R.id.mealBtn -> {
                     val intent = Intent(this, MealActivity::class.java)
                     intent.putExtra("mainBtn", "Meal")
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     startActivity(intent)
                 }
                 R.id.dessertBtn -> {
                     val intent = Intent(this, DessertActivity::class.java)
                     intent.putExtra("mainBtn", "Dessert")
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     startActivity(intent)
                 }
             }

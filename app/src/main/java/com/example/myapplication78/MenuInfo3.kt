@@ -23,8 +23,10 @@ class MenuInfo3: AppCompatActivity() {
 
 
         returnbtn.setOnClickListener {
-            val intent = Intent(this, MenuList::class.java)
-            startActivity(intent) }
+         /*   val intent = Intent(this, MenuList::class.java)
+            startActivity(intent)*/
+            super.onBackPressed()
+        }
 
         returnBtn.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)

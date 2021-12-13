@@ -11,6 +11,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import kotlin.properties.Delegates
 
 
 class MenuList: AppCompatActivity() {
@@ -22,6 +23,7 @@ class MenuList: AppCompatActivity() {
     lateinit var Btn3 : Button
     lateinit var Btn4 : Button
     lateinit var img1 : ImageView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.menu_list)
@@ -33,11 +35,38 @@ class MenuList: AppCompatActivity() {
         var soupChked = inIntent.getStringExtra("soupBtn")
         var juiceChked = inIntent.getStringExtra("juiceBtn")
         var nojuiceChked = inIntent.getStringExtra("nojuiceBtn")
+        var dessertChked = inIntent.getStringExtra("dessertBtn")
 
         // DB 종류
-        var isMeal = true
-        var isJuice = false
-        var isNoJuice = false
+        var isMeal : Boolean = false
+        var isJuice : Boolean = false
+        var isNoJuice : Boolean = false
+        if(mainChked != null){
+            if(mainChked == "Meal"){
+                isMeal = true
+                isJuice = false
+                isNoJuice = false
+            }
+            else{
+                isMeal = false
+            }
+            if(mainChked == "Dessert"){
+                if(dessertChked == "JUICE"){
+                    isJuice = true
+                    isNoJuice = false
+                    isMeal = false
+                }
+                else if(dessertChked == "NO JUICE"){
+                    isNoJuice = true
+                    isJuice = false
+                    isMeal = false
+                }
+                else{
+                    isJuice = false
+                    isNoJuice = false
+                }
+            }
+        }
 
         // retrofit 객체 만들기
         var retrofit = Retrofit.Builder()
@@ -51,7 +80,7 @@ class MenuList: AppCompatActivity() {
             var spicy = spicyChked
             var soup = soupChked
 
-            Toast.makeText(getApplicationContext(), type +" "+ spicy +" "+ soup, Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), type +" "+ spicy +" "+ soup, Toast.LENGTH_LONG).show()
 
             var sendDataMeal : SendDataMeal = retrofit.create(SendDataMeal::class.java)
 
@@ -68,10 +97,12 @@ class MenuList: AppCompatActivity() {
                                 Toast.makeText(applicationContext,"통신 실패 : " + t.message, Toast.LENGTH_SHORT).show()
                             }
 
+
                             // 성공한 경우
                             override fun onResponse(call: Call<GetDataList>, response: Response<GetDataList>) {
                                 //                    view01.setText(response.body()?.toString())
                                 var arr = response.body()
+
 
                                 var menu1 = arr?.products?.get(0)?.toString()
                                 var menu2 = arr?.products?.get(1)?.toString()
@@ -87,11 +118,15 @@ class MenuList: AppCompatActivity() {
 
             }
         }
+
         else if (isJuice) {
+
             // 이전 페이지들에서 받아온 is_caffeine 정보 => 반드시 DB에 정의된 값들이어야 함(server 쿼리문 때문)
             var is_caffeine = juiceChked
 
             var sendDataJuice : SendDataJuice = retrofit.create(SendDataJuice::class.java)
+
+            Toast.makeText(getApplicationContext(), "isJuice: " + isJuice + is_caffeine, Toast.LENGTH_LONG).show()
 
             if (is_caffeine != null) {
                 sendDataJuice.requestData(is_caffeine).enqueue(object:
@@ -114,6 +149,8 @@ class MenuList: AppCompatActivity() {
             var type = nojuiceChked
 
             var sendDataNoJuice : SendDataNoJuice = retrofit.create(SendDataNoJuice::class.java)
+
+            Toast.makeText(getApplicationContext(), "isNoJuice: " + isNoJuice + type, Toast.LENGTH_LONG).show()
 
             if (type != null) {
                 sendDataNoJuice.requestData(type).enqueue(object:
@@ -143,11 +180,9 @@ class MenuList: AppCompatActivity() {
 
         returnBtn.setOnClickListener {
 
-            if(mealChked.isNullOrEmpty()){
+           /* if(mealChked.isNullOrEmpty()){
                 if(juiceChked.isNullOrEmpty()){
-                    val intent = Intent(this, NoJuiceActivity::class.java)
-                   intent.addFlags(FLAG_ACTIVITY_NEW_TASK)
-                    startActivity(intent)
+                    super.onBackPressed()
 
                 }
                 else if(nojuiceChked.isNullOrEmpty()){
@@ -163,7 +198,10 @@ class MenuList: AppCompatActivity() {
                intent.addFlags(FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
 
-            }
+            }*/
+
+
+            super.onBackPressed()
         }
 
         Btn1.setOnClickListener{
@@ -184,5 +222,7 @@ class MenuList: AppCompatActivity() {
         }
 
     }
+
+
 }
 
