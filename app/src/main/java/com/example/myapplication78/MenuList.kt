@@ -1,6 +1,7 @@
 package com.example.myapplication78
 
 import android.content.Intent
+import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
@@ -46,9 +47,11 @@ class MenuList: AppCompatActivity() {
 
         if (isMeal) {
             // 이전 페이지들에서 받아온 type, spicy, soup 정보 => 반드시 DB에 정의된 값들이어야 함(server 쿼리문 때문)
-            var type = "Noodle"
-            var spicy = "NOT SPICY"
-            var soup = "NOT SOUP"
+            var type = mealChked
+            var spicy = spicyChked
+            var soup = soupChked
+
+            Toast.makeText(getApplicationContext(), type +" "+ spicy +" "+ soup, Toast.LENGTH_LONG).show();
 
             var sendDataMeal : SendDataMeal = retrofit.create(SendDataMeal::class.java)
 
@@ -56,65 +59,77 @@ class MenuList: AppCompatActivity() {
             // 입력값 부분 : requestData()
             // 출력값 부분 : Callback<>
             // REST (GET, POST, UPDATE, DELETE) 중에 POST 통신으로 데이터를 가져옴
-            sendDataMeal.requestData(type, spicy, soup).enqueue(object:
-                Callback<GetDataList> {
-                // 실패한 경우
-                override fun onFailure(call: Call<GetDataList>, t: Throwable) {
-                    Toast.makeText(applicationContext,"통신 실패 : " + t.message, Toast.LENGTH_SHORT).show()
-                }
-                // 성공한 경우
-                override fun onResponse(call: Call<GetDataList>, response: Response<GetDataList>) {
-//                    view01.setText(response.body()?.toString())
-                    var arr = response.body()
+            if (type != null && spicy != null && soup != null) {
 
-                    var menu1 = arr?.products?.get(0)?.toString()
-                    var menu2 = arr?.products?.get(1)?.toString()
-                    var menu3 = arr?.products?.get(2)?.toString()
-                    var menu4 = arr?.products?.get(3)?.toString()
+                        sendDataMeal.requestData(type, spicy, soup).enqueue(object:
+                            Callback<GetDataList> {
+                            // 실패한 경우
+                            override fun onFailure(call: Call<GetDataList>, t: Throwable) {
+                                Toast.makeText(applicationContext,"통신 실패 : " + t.message, Toast.LENGTH_SHORT).show()
+                            }
 
-                    System.out.println(menu1 + "\n" + menu2 + "\n" + menu3 + "\n" + menu4)
+                            // 성공한 경우
+                            override fun onResponse(call: Call<GetDataList>, response: Response<GetDataList>) {
+                                //                    view01.setText(response.body()?.toString())
+                                var arr = response.body()
 
-//                    System.out.println(arr?.toString())
-                }
-            })
+                                var menu1 = arr?.products?.get(0)?.toString()
+                                var menu2 = arr?.products?.get(1)?.toString()
+                                var menu3 = arr?.products?.get(2)?.toString()
+                                var menu4 = arr?.products?.get(3)?.toString()
+
+                                System.out.println(menu1 + "\n" + menu2 + "\n" + menu3 + "\n" + menu4)
+
+                                //                    System.out.println(arr?.toString())
+                            }
+                        })
+
+
+            }
         }
         else if (isJuice) {
             // 이전 페이지들에서 받아온 is_caffeine 정보 => 반드시 DB에 정의된 값들이어야 함(server 쿼리문 때문)
-            var is_caffeine = "TRUE"
+            var is_caffeine = juiceChked
 
             var sendDataJuice : SendDataJuice = retrofit.create(SendDataJuice::class.java)
 
-            sendDataJuice.requestData(is_caffeine).enqueue(object:
-                Callback<GetDataList> {
-                // 실패한 경우
-                override fun onFailure(call: Call<GetDataList>, t: Throwable) {
-                    Toast.makeText(applicationContext,"통신 실패 : " + t.message, Toast.LENGTH_SHORT).show()
-                }
-                // 성공한 경우
-                override fun onResponse(call: Call<GetDataList>, response: Response<GetDataList>) {
-                    var arr = response.body()
-                    System.out.println(arr?.toString())
-                }
-            })
+            if (is_caffeine != null) {
+                sendDataJuice.requestData(is_caffeine).enqueue(object:
+                    Callback<GetDataList> {
+                    // 실패한 경우
+                    override fun onFailure(call: Call<GetDataList>, t: Throwable) {
+                        Toast.makeText(applicationContext,"통신 실패 : " + t.message, Toast.LENGTH_SHORT).show()
+                    }
+
+                    // 성공한 경우
+                    override fun onResponse(call: Call<GetDataList>, response: Response<GetDataList>) {
+                        var arr = response.body()
+                        System.out.println(arr?.toString())
+                    }
+                })
+            }
         }
         else if (isNoJuice) {
             // 이전 페이지들에서 받아온 type 정보 => 반드시 DB에 정의된 값들이어야 함(server 쿼리문 때문)
-            var type = "FRUIT"
+            var type = nojuiceChked
 
             var sendDataNoJuice : SendDataNoJuice = retrofit.create(SendDataNoJuice::class.java)
 
-            sendDataNoJuice.requestData(type).enqueue(object:
-                Callback<GetDataList> {
-                // 실패한 경우
-                override fun onFailure(call: Call<GetDataList>, t: Throwable) {
-                    Toast.makeText(applicationContext,"통신 실패 : " + t.message, Toast.LENGTH_SHORT).show()
-                }
-                // 성공한 경우
-                override fun onResponse(call: Call<GetDataList>, response: Response<GetDataList>) {
-                    var arr = response.body()
-                    System.out.println(arr?.toString())
-                }
-            })
+            if (type != null) {
+                sendDataNoJuice.requestData(type).enqueue(object:
+                    Callback<GetDataList> {
+                    // 실패한 경우
+                    override fun onFailure(call: Call<GetDataList>, t: Throwable) {
+                        Toast.makeText(applicationContext,"통신 실패 : " + t.message, Toast.LENGTH_SHORT).show()
+                    }
+
+                    // 성공한 경우
+                    override fun onResponse(call: Call<GetDataList>, response: Response<GetDataList>) {
+                        var arr = response.body()
+                        System.out.println(arr?.toString())
+                    }
+                })
+            }
         }
 
 
@@ -131,23 +146,23 @@ class MenuList: AppCompatActivity() {
             if(mealChked.isNullOrEmpty()){
                 if(juiceChked.isNullOrEmpty()){
                     val intent = Intent(this, NoJuiceActivity::class.java)
-                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                   intent.addFlags(FLAG_ACTIVITY_NEW_TASK)
                     startActivity(intent)
-                    finish()
+
                 }
                 else if(nojuiceChked.isNullOrEmpty()){
                     val intent = Intent(this, JuiceActivity::class.java)
-                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                   intent.addFlags(FLAG_ACTIVITY_NEW_TASK)
                     startActivity(intent)
-                    finish()
+
                 }
             }
 
             else {
                 val intent = Intent(this, SoupActivity::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+               intent.addFlags(FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
-                finish()
+
             }
         }
 

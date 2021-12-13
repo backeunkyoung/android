@@ -38,13 +38,13 @@ class DessertActivity : AppCompatActivity() {
                 R.id.juiceBtn -> {
                     val intent = Intent(this, JuiceActivity::class.java)
                     intent.putExtra("mainBtn", mainChked)
-                    intent.putExtra("dessertBtn", "juice")
+                    intent.putExtra("dessertBtn", "JUICE")
                     startActivity(intent)
                 }
                 R.id.nojuiceBtn -> {
                     val intent = Intent(this, NoJuiceActivity::class.java)
                     intent.putExtra("mainBtn", mainChked)
-                    intent.putExtra("dessertBtn", "nojuice")
+                    intent.putExtra("dessertBtn", "NO JUICE")
                     startActivity(intent)
                 }
             }

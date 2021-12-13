@@ -40,12 +40,14 @@ class SecondActivity : AppCompatActivity() {
             when(rdoGrp.checkedRadioButtonId){
                 R.id.mealBtn -> {
                     val intent = Intent(this, MealActivity::class.java)
-                    intent.putExtra("mainBtn", "meal")
+                    intent.putExtra("mainBtn", "Meal")
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     startActivity(intent)
                 }
                 R.id.dessertBtn -> {
                     val intent = Intent(this, DessertActivity::class.java)
-                    intent.putExtra("mainBtn", "dessert")
+                    intent.putExtra("mainBtn", "Dessert")
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     startActivity(intent)
                 }
             }

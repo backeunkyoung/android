@@ -41,17 +41,17 @@ class NoJuiceActivity : AppCompatActivity() {
                 R.id.bakeryBtn -> {
                     intent.putExtra("mainBtn", mainChked)
                     intent.putExtra("mainBtn", dessertChked)
-                    intent.putExtra("nojuiceBtn", "bakery")
+                    intent.putExtra("nojuiceBtn", "BREAD")
                 }
                 R.id.iceBtn -> {
                     intent.putExtra("mainBtn", mainChked)
                     intent.putExtra("mainBtn", dessertChked)
-                    intent.putExtra("nojuiceBtn", "ice")
+                    intent.putExtra("nojuiceBtn", "FROZEN")
                 }
                 R.id.fruitsBtn -> {
                     intent.putExtra("mainBtn", mainChked)
                     intent.putExtra("mainBtn", dessertChked)
-                    intent.putExtra("nojuiceBtn", "fruits")
+                    intent.putExtra("nojuiceBtn", "FRUIT")
                 }
             }
             startActivity(intent)

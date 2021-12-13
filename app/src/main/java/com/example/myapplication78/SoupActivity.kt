@@ -57,19 +57,20 @@ class SoupActivity : AppCompatActivity() {
                 R.id.yesBtn -> {
                     intent.putExtra("mainBtn", mainChked)
                     intent.putExtra("mealBtn", mealChked)
-                    intent.putExtra("mainBtn", spicyChked)
+                    intent.putExtra("spicyBtn", spicyChked)
 
-                    intent.putExtra("soupBtn", "yes")
+                    intent.putExtra("soupBtn", "SOUP")
                 }
                 R.id.noBtn -> {
                     intent.putExtra("mainBtn", mainChked)
                     intent.putExtra("mealBtn", mealChked)
-                    intent.putExtra("mainBtn", spicyChked)
+                    intent.putExtra("spicyBtn", spicyChked)
 
-                    intent.putExtra("soupBtn", "no")
+                    intent.putExtra("soupBtn", "NOT SOUP")
                 }
 
             }
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
 
         }

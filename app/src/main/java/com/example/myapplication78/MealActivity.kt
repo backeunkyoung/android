@@ -47,19 +47,22 @@ class MealActivity : AppCompatActivity() {
                 R.id.riceBtn -> {
                     val intent = Intent(this, SpicyActivity::class.java)
                     intent.putExtra("mainBtn", mainChked)
-                    intent.putExtra("mealBtn", "rice")
+                    intent.putExtra("mealBtn", "Rice")
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     startActivity(intent)
                 }
                 R.id.noodleBtn -> {
                     val intent = Intent(this, SpicyActivity::class.java)
                     intent.putExtra("mainBtn", mainChked)
-                    intent.putExtra("mealBtn", "noodle")
+                    intent.putExtra("mealBtn", "Noodle")
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     startActivity(intent)
                 }
                 R.id.breadBtn -> {
                     val intent = Intent(this, MenuList::class.java)
                     intent.putExtra("mainBtn", mainChked)
-                    intent.putExtra("mealBtn", "bread")
+                    intent.putExtra("mealBtn", "Bread")
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     startActivity(intent)
                 }
 

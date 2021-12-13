@@ -12,21 +12,26 @@
         android:theme="@style/Theme.MyApplication78">
         <activity
             android:name=".NoJuiceActivity"
+
             android:exported="false" />
         <activity
             android:name=".JuiceActivity"
+
             android:exported="false" />
         <activity
             android:name=".DessertActivity"
+
             android:exported="false" />
         <activity
             android:name=".SoupActivity"
+
             android:exported="false" />
         <activity
             android:name=".TempActivity"
             android:exported="false" />
         <activity
             android:name=".SpicyActivity"
+
             android:exported="false" />
         <activity
             android:name=".MenuList"
@@ -45,9 +50,11 @@
             android:exported="false" />
         <activity
             android:name=".MealActivity"
+
             android:exported="false" />
         <activity
             android:name=".SecondActivity"
+
             android:exported="false" />
         <activity
             android:name=".MainActivity2"

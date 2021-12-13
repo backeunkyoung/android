@@ -52,15 +52,20 @@ class SpicyActivity : AppCompatActivity() {
                 R.id.spicyBtn -> {
                     intent.putExtra("mainBtn", mainChked)
                     intent.putExtra("mealBtn", mealChked)
-                    intent.putExtra("spicyBtn", "spicy")
+
+                    intent.putExtra("spicyBtn", "SPICY")
+
                 }
                 R.id.notspicyBtn -> {
                     intent.putExtra("mainBtn", mainChked)
                     intent.putExtra("mealBtn", mealChked)
-                    intent.putExtra("spicyBtn", "notspicy")
+
+                    intent.putExtra("spicyBtn", "NOT SPICY")
+
                 }
 
             }
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
             }
     }

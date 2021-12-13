@@ -40,12 +40,12 @@ class JuiceActivity : AppCompatActivity() {
                 R.id.caffBtn -> {
                     intent.putExtra("mainBtn", mainChked)
                     intent.putExtra("mainBtn", dessertChked)
-                    intent.putExtra("juiceBtn", "caffeine")
+                    intent.putExtra("juiceBtn", "TRUE")
                 }
                 R.id.decaffBtn -> {
                     intent.putExtra("mainBtn", mainChked)
                     intent.putExtra("mainBtn", dessertChked)
-                    intent.putExtra("juiceBtn", "decaffeine")
+                    intent.putExtra("juiceBtn", "FALSE")
                 }
             }
             startActivity(intent)

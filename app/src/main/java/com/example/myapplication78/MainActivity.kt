@@ -1,6 +1,7 @@
 package com.example.myapplication78
 
 import android.content.Intent
+import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity() {
 
         startBtn.setOnClickListener {
             val intent = Intent(this, SecondActivity::class.java)
+            intent.addFlags( FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
         }
 
