@@ -2,9 +2,7 @@ package com.example.myapplication78
 
 import com.example.loaddb.GetDataList
 import retrofit2.Call
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface SendDataMeal {
 
@@ -15,5 +13,6 @@ interface SendDataMeal {
         @Field("spicy") spicy : String,
         @Field("soup") soup : String,
     ): Call<GetDataList>    // 응답으로 어떤 값을 받아올지
+
 
 }

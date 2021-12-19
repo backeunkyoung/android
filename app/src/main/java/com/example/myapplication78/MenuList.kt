@@ -1,10 +1,12 @@
 package com.example.myapplication78
 
+import android.app.PendingIntent.getActivity
 import android.content.Intent
 import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
+import com.bumptech.glide.Glide
 import com.example.loaddb.GetDataList
 import retrofit2.Call
 import retrofit2.Callback
@@ -36,6 +38,26 @@ class MenuList: AppCompatActivity() {
         var juiceChked = inIntent.getStringExtra("juiceBtn")
         var nojuiceChked = inIntent.getStringExtra("nojuiceBtn")
         var dessertChked = inIntent.getStringExtra("dessertBtn")
+
+        var menu1_name : String = ""
+        var menu2_name : String = ""
+        var menu3_name : String = ""
+        var menu4_name : String = ""
+
+        var menu1_img : String = ""
+        var menu2_img : String = ""
+        var menu3_img : String = ""
+        var menu4_img : String = ""
+
+        var menu_img : ArrayList<String>
+
+        var explain1 : String = ""
+        var explain2 : String = ""
+        var explain3 : String = ""
+        var explain4 : String = ""
+
+        var explain : ArrayList<String>
+
 
         // DB 종류
         var isMeal : Boolean = false
@@ -101,17 +123,46 @@ class MenuList: AppCompatActivity() {
                             // 성공한 경우
                             override fun onResponse(call: Call<GetDataList>, response: Response<GetDataList>) {
                                 //                    view01.setText(response.body()?.toString())
-                                var arr = response.body()
+                               var arr = response.body()
+
+                                menu1_name = arr!!.products.get(0).food_name
+                                menu2_name = arr!!.products.get(1).food_name
+                                menu3_name = arr!!.products.get(2).food_name
+                                menu4_name = arr!!.products.get(3).food_name
+
+                                Btn1.setText(menu1_name)
+                                Btn2.setText(menu2_name)
+                                Btn3.setText(menu3_name)
+                                Btn4.setText(menu4_name)
+
+                                menu1_img = arr!!.products.get(0).thumbnail_picture
+                                menu2_img = arr!!.products.get(1).thumbnail_picture
+                                menu3_img = arr!!.products.get(2).thumbnail_picture
+                                menu4_img = arr!!.products.get(3).thumbnail_picture
+
+                                explain1 = arr!!.products.get(0).menu_explain
+                                explain2 = arr!!.products.get(1).menu_explain
+                                explain3 = arr!!.products.get(2).menu_explain
+                                explain4 = arr!!.products.get(3).menu_explain
 
 
-                                var menu1 = arr?.products?.get(0)?.toString()
-                                var menu2 = arr?.products?.get(1)?.toString()
-                                var menu3 = arr?.products?.get(2)?.toString()
-                                var menu4 = arr?.products?.get(3)?.toString()
+                                Glide.with(this@MenuList)
+                                    .load(arr!!.products.get(0).thumbnail_picture)
+                                    .into(findViewById(R.id.imageView1))
 
-                                System.out.println(menu1 + "\n" + menu2 + "\n" + menu3 + "\n" + menu4)
+                                Glide.with(this@MenuList)
+                                    .load(arr!!.products.get(1).thumbnail_picture)
+                                    .into(findViewById(R.id.imageView2))
 
-                                //                    System.out.println(arr?.toString())
+                                Glide.with(this@MenuList)
+                                    .load(arr!!.products.get(2).thumbnail_picture)
+                                    .into(findViewById(R.id.imageView3))
+
+                                Glide.with(this@MenuList)
+                                    .load(arr!!.products.get(3).thumbnail_picture)
+                                    .into(findViewById(R.id.imageView4))
+
+
                             }
                         })
 
@@ -139,7 +190,47 @@ class MenuList: AppCompatActivity() {
                     // 성공한 경우
                     override fun onResponse(call: Call<GetDataList>, response: Response<GetDataList>) {
                         var arr = response.body()
-                        System.out.println(arr?.toString())
+
+                        menu1_name = arr!!.products.get(0).food_name
+                        menu2_name = arr!!.products.get(1).food_name
+                        menu3_name = arr!!.products.get(2).food_name
+                        menu4_name = arr!!.products.get(3).food_name
+
+                        menu1_img = arr!!.products.get(0).thumbnail_picture
+                        menu2_img = arr!!.products.get(1).thumbnail_picture
+                        menu3_img = arr!!.products.get(2).thumbnail_picture
+                        menu4_img = arr!!.products.get(3).thumbnail_picture
+
+                        explain1 = arr!!.products.get(0).menu_explain
+                        explain2 = arr!!.products.get(1).menu_explain
+                        explain3 = arr!!.products.get(2).menu_explain
+                        explain4 = arr!!.products.get(3).menu_explain
+
+
+
+
+                        Btn1.setText(menu1_name)
+                        Btn2.setText(menu2_name)
+                        Btn3.setText(menu3_name)
+                        Btn4.setText(menu4_name)
+
+                        Glide.with(this@MenuList)
+                            .load(arr!!.products.get(0).thumbnail_picture)
+                            .into(findViewById(R.id.imageView1))
+
+                        Glide.with(this@MenuList)
+                            .load(arr!!.products.get(1).thumbnail_picture)
+                            .into(findViewById(R.id.imageView2))
+
+                        Glide.with(this@MenuList)
+                            .load(arr!!.products.get(2).thumbnail_picture)
+                            .into(findViewById(R.id.imageView3))
+
+                        Glide.with(this@MenuList)
+                            .load(arr!!.products.get(3).thumbnail_picture)
+                            .into(findViewById(R.id.imageView4))
+
+
                     }
                 })
             }
@@ -163,7 +254,44 @@ class MenuList: AppCompatActivity() {
                     // 성공한 경우
                     override fun onResponse(call: Call<GetDataList>, response: Response<GetDataList>) {
                         var arr = response.body()
-                        System.out.println(arr?.toString())
+
+                        menu1_name = arr!!.products.get(0).food_name
+                        menu2_name = arr!!.products.get(1).food_name
+                        menu3_name = arr!!.products.get(2).food_name
+                        menu4_name = arr!!.products.get(3).food_name
+
+                        menu1_img = arr!!.products.get(0).thumbnail_picture
+                        menu2_img = arr!!.products.get(1).thumbnail_picture
+                        menu3_img = arr!!.products.get(2).thumbnail_picture
+                        menu4_img = arr!!.products.get(3).thumbnail_picture
+
+                        explain1 = arr!!.products.get(0).menu_explain
+                        explain2 = arr!!.products.get(1).menu_explain
+                        explain3 = arr!!.products.get(2).menu_explain
+                        explain4 = arr!!.products.get(3).menu_explain
+
+                        Btn1.setText(menu1_name)
+                        Btn2.setText(menu2_name)
+                        Btn3.setText(menu3_name)
+                        Btn4.setText(menu4_name)
+
+                        Glide.with(this@MenuList)
+                            .load(arr!!.products.get(0).thumbnail_picture)
+                            .into(findViewById(R.id.imageView1))
+
+                        Glide.with(this@MenuList)
+                            .load(arr!!.products.get(1).thumbnail_picture)
+                            .into(findViewById(R.id.imageView2))
+
+                        Glide.with(this@MenuList)
+                            .load(arr!!.products.get(2).thumbnail_picture)
+                            .into(findViewById(R.id.imageView3))
+
+                        Glide.with(this@MenuList)
+                            .load(arr!!.products.get(3).thumbnail_picture)
+                            .into(findViewById(R.id.imageView4))
+
+
                     }
                 })
             }
@@ -180,44 +308,38 @@ class MenuList: AppCompatActivity() {
 
         returnBtn.setOnClickListener {
 
-           /* if(mealChked.isNullOrEmpty()){
-                if(juiceChked.isNullOrEmpty()){
-                    super.onBackPressed()
-
-                }
-                else if(nojuiceChked.isNullOrEmpty()){
-                    val intent = Intent(this, JuiceActivity::class.java)
-                   intent.addFlags(FLAG_ACTIVITY_NEW_TASK)
-                    startActivity(intent)
-
-                }
-            }
-
-            else {
-                val intent = Intent(this, SoupActivity::class.java)
-               intent.addFlags(FLAG_ACTIVITY_NEW_TASK)
-                startActivity(intent)
-
-            }*/
-
-
             super.onBackPressed()
         }
 
+
+
         Btn1.setOnClickListener{
             val intent = Intent(this, MenuInfo::class.java)
+            intent.putExtra("menu_name", menu1_name)
+            intent.putExtra("menu_img", menu1_img)
+            intent.putExtra("explain", explain1)
             startActivity(intent)
         }
         Btn2.setOnClickListener{
             val intent = Intent(this, MenuInfo2::class.java)
+            intent.putExtra("menu_name", menu2_name)
+            intent.putExtra("menu_img", menu2_img)
+            intent.putExtra("explain", explain2)
             startActivity(intent)
         }
         Btn3.setOnClickListener{
             val intent = Intent(this, MenuInfo3::class.java)
+            intent.putExtra("menu_name", menu3_name)
+            intent.putExtra("menu_img", menu3_img)
+            intent.putExtra("explain", explain3)
             startActivity(intent)
         }
         Btn4.setOnClickListener{
             val intent = Intent(this, MenuInfo4::class.java)
+            intent.putExtra("menu_name", menu4_name)
+            intent.putExtra("menu_img", menu4_img)
+            intent.putExtra("explain", explain4)
+
             startActivity(intent)
         }
 
